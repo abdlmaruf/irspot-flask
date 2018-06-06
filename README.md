@@ -1,6 +1,6 @@
 # irspot-flask
 An website for identifying recombination spots.
-site-packages:
+# Site-packages:
   flask,
   pandas,
   numpy,
