@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>iRSpot-SF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!--logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand img-responsive"><img src="../static/dna_final_2.png" height="40" width="250"></a>
+            </div>
+
+            <!--Menu items-->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="#">Web Server</a></li>
+                    <li><a href="readme.html">Read Me</a> </li>
+                    <li><a href="downloads.html">Downloads</a> </li>
+                    <li><a href="citation.html">Citation</a> </li>
+                    <li><a href="contributors.html">Contributors</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" align="center">
+        <h3>Enter the DNA sequence in FASTA format:</h3>
+        <form action="result.html">
+            <textarea name="message" rows="10" cols="80">>YDL087C 1.67
+ATGTCAACTATGTCAACGCCTGCCGCAGAACAACGCAAACTCGTCGAACAGCTGATGGGCAGGACTTCAGTTTCCGCCACAACAGGTATTCGCATCAAAAAAGAGACCTCGGACTACACGATCCAAGATCTGCAAGTCATACCTTGTTGGCGAGTGCCCCTACGACCTGTTTCAGGGCACCAACAGAGCCTGGGAAAATGCCCGCAGATGCATCTTACCAAGCATAAAATTCAGTACGAGAGAGGGTCAAGCAGGGCAAAACGTTTCCCGAATTCGAAAGAGAATATCTGGCCATTCTATCTCGGTTGTTAATGAGTGTAATGGCCAGATATCCGTAGCACTACAAAATCTAAAACACACCGCTGAGAACGAATGAAGATTCAGCAGGTTACCGAAGAACTAGATGTCTTGGACGTGCGGATAGGCCAATGGGACAAGAGATTGATTCTTTAATTCGTGCAGATGAAGTCAGTATGGGTATGCTACAGCAGTCAAATTACAAGAACTGATTAGTAAAAGGAAAGAAGTTGCAAAACGTGTACGAAACATACAGAAAACGTGGGCCAGAGCGCCCAGCAAAAGTTACAGGTTTGCGAGGTGTGTGGGGCATCCTATCGCGTTTAGATACAGACAGAAGGCTTGCTGACCACTTCTTGGGGAAGATTCATCTGGATATGTCAAGATGAGAGAGGATTATGATCGGCTAATGAAGAATAACCGGACAACTAACGCAGCAAGACAGCTACTACACTACCCGGAAGACGCTTTGTGTA</textarea>
+            <br>
+            <b>Enter step size: </b><input type="number" name="quantity" min="30" max="1500" value="200">
+            <br>
+            <p class="text-success">(Recommended step size is >= 200)</p>
+            <button type="button" class="btn btn-primary">Submit</button> 	&nbsp; 	&nbsp; <button type="button" class="btn btn-primary">Example</button>
+            <br>
+            <br>
+        </form>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+                <h4>User Guidelines</h4>
+                <p class="lead"></p>
+                <ul>
+                    <li>Recommended browser : Google Chrome or Mozilla Firefox</li>
+                    <li>FASTA sequence length must not be too small. (Length must be greater than 30)</li>
+                    <li>Maximum number of characters is 50000</li>
+                    <li>User should give a single DNA sequence in FASTA format</li>
+                    <li>Click on the Example button for example</li>
+                    <li>Click on the Submit button to get the prediction results</li>
+                    <li>If your FASTA format is not valid, it will not give any prediction</li>
+                    <li>Case-sensitive : distinguishes between lower case letter or upper case letter.</li>
+                    <li>Visit <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA</a>, to know more about FASTA format. </li>
+                    <li>A FASTA format DNA sequnce is given below (user can copy and paste it in the textarea)</li>
+                    <br>
+                    <textarea name="message" rows="10" cols="80">>YDL087C 1.67
+ATGTCAACTATGTCAACGCCTGCCGCAGAACAACGCAAACTCGTCGAACAGCTGATGGGCAGGACTTCAGTTTCCGCCACAACAGGTATTCGCATCAAAAAAGAGACCTCGGACTACACGATCCAAGATCTGCAAGTCATACCTTGTTGGCGAGTGCCCCTACGACCTGTTTCAGGGCACCAACAGAGCCTGGGAAAATGCCCGCAGATGCATCTTACCAAGCATAAAATTCAGTACGAGAGAGGGTCAAGCAGGGCAAAACGTTTCCCGAATTCGAAAGAGAATATCTGGCCATTCTATCTCGGTTGTTAATGAGTGTAATGGCCAGATATCCGTAGCACTACAAAATCTAAAACACACCGCTGAGAACGAATGAAGATTCAGCAGGTTACCGAAGAACTAGATGTCTTGGACGTGCGGATAGGCCAATGGGACAAGAGATTGATTCTTTAATTCGTGCAGATGAAGTCAGTATGGGTATGCTACAGCAGTCAAATTACAAGAACTGATTAGTAAAAGGAAAGAAGTTGCAAAACGTGTACGAAACATACAGAAAACGTGGGCCAGAGCGCCCAGCAAAAGTTACAGGTTTGCGAGGTGTGTGGGGCATCCTATCGCGTTTAGATACAGACAGAAGGCTTGCTGACCACTTCTTGGGGAAGATTCATCTGGATATGTCAAGATGAGAGAGGATTATGATCGGCTAATGAAGAATAACCGGACAACTAACGCAGCAAGACAGCTACTACACTACCCGGAAGACGCTTTGTGTA</textarea>
+                </ul>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>iRSpot-SF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!--logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand img-responsive"><img src="../static/dna_final_2.png" height="40" width="250"></a>
+            </div>
+
+            <!--Menu items-->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="server.html">Web Server</a></li>
+                    <li><a href="readme.html">Read Me</a> </li>
+                    <li><a href="downloads.html">Downloads</a> </li>
+                    <li><a href="citation.html">Citation</a> </li>
+                    <li><a href="contributors.html">Contributors</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+        <h2 align="center"><a href="#viz">Result Visualization</a></h2>
+        <br>
+        <table class="table table-striped">
+        <thead >
+            <tr align="center">
+                <th align="center">Position</th>
+                <th align="center">Predicted Type</th>
+                <th align="center">Probability</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in range(test_data|count) %}
+                <tr>
+                    <td>{{ size_range[i][0] }} - {{ size_range[i][1] }}</td>
+                    {% if prob[i][0] < prob[i][1] %}
+                        <td><b style="color: red">HOT Spot</b></td>
+                        <td>{{ prob[i][1] }}</td>
+
+                    {% else %}
+                        <td><b style="color: green">COLD Spot</b></td>
+                        <td>{{ prob[i][0] }}</td>
+
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+
+    <div class="container" name="visualization" id="viz">
+        <h3 align="center">Visualization</h3>
+        <br>
+        {% for i in range(test_data|count) %}
+            {% if prob[i][0] < prob[i][1] %}
+                [<b style="color: red">
+                    {% for data in test_data[i] %}
+                        {{data}}
+                    {% endfor %}
+
+                </b>] &nbsp;
+            {% else %}
+                [<b style="color: green">
+                    {% for data in test_data[i] %}
+                        {{data}}
+                    {% endfor %}
+
+                </b>] &nbsp;
+            {% endif %}
+        {% endfor %}
+
+    </div>
+</body>
+</html>

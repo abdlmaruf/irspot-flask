@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>iRSpot-SF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!--logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand img-responsive"><img src="../static/dna_final_2.png" height="40" width="250"></a>
+            </div>
+
+            <!--Menu items-->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="server.html">Web Server</a></li>
+                    <li class="active"><a href="#">Read Me</a> </li>
+                    <li><a href="downloads.html">Downloads</a> </li>
+                    <li><a href="citation.html">Citation</a> </li>
+                    <li><a href="contributors.html">Contributors</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+        <div class="jumbotron">
+                <h2 align="center">Readme</h2>
+                <p class="lead"></p>
+            <br>
+                <ul>
+                    <li style="font-size: medium"><b>Step 1: </b>Go to the link at <a href="http://irspotsf.pythonanywhere.com/">http://irspotsf.pythonanywhere.com/</a>. You will see the homepage of <b>iRSpot-SF</b>.</li>
+                    <br>
+                    <li style="font-size: medium"><b>Step 2: </b>Click on the <b>Web Server</b> tab on the navigation bar or go to this link <a href="http://irspotsf.pythonanywhere.com/server.html">http://irspotsf.pythonanywhere.com/server.html</a>. You will see the server page.</li>
+                    <br>
+                    <li style="font-size: medium"><b>Step 3: </b>Once in the server page, either type or copy and paste the query DNA sequence into the <b>input box</b>. The input sequence should be in FASTA format. A sequence in FASTA format consists of a single initial line beginning with the symbol ">" in the first column, followed by lines of sequence data in which nucleotides or amino acids are represented using single-letter codes. Except for the mandatory symbol ">", all the other characters in the single initial line are optional and only used for the purpose of identification and description. You can input a single sequence at a time. An example sequence in FASTA format can be seen by clicking on the <b>Example</b> button right below the input box.</li>
+                    <br>
+                    <li style="font-size: medium"><b>Step 4: </b>Users are able to set the <i>step size</i> of iRSpot-SF. The predictor predicts the type (hotspot, coldspot) in each subsequence according to the <i>step size</i>. Example: if sequence length is 600 and <i>step size</i> given is 200, then the model will predict from the position 1 to 200 of the sequence whether it is hotspot or coldspot. Then it will do the same thing for the position 201 to 400 and the position 401 to 600.</li>
+                    <br>
+                    <li style="font-size: medium"><b>Step 5: </b>Click on the <a type="button"  class="btn btn-primary">Submit</a> button to see the predicted results.</li>
+                </ul>
+        </div>
+</div>
+
+</body>
+</html>

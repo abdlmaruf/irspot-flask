@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>iRSpot-SF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Nav bar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!--logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand img-responsive"><img src="../static/dna_final_2.png" height="40" width="250"></a>
+            </div>
+
+            <!--Menu items-->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="server.html">Web Server</a></li>
+                    <li><a href="readme.html">Read Me</a> </li>
+                    <li><a href="downloads.html">Downloads</a> </li>
+                    <li><a href="citation.html">Citation</a> </li>
+                    <li><a href="contributors.html">Contributors</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron" align="center">
+                <h1>iRSpot-SF</h1>
+                <p class="lead"></p>
+                <p>Prediction of Recombination Hotspots using Sequence Based Features into Chou’s Pseudo Components</p>
+            </div>
+    </div>
+    <div class="container" align="left">
+        <p>Recombination hotspots in a genome are unevenly distributed. Hotspots are regions in a genome that show higher rates of meiotic recombinations. Computational methods for recombination hotspot prediction often use sophisticated features that are derived from physico-chemical or structure based properties of nucleotides. In this paper, we propose <b>iRSpot-SF</b> that uses sequence based features only which are computationally cheap to generate. Four feature groups are used in our method: k-mer composition, gapped k-mer composition, TF-IDF of k-mers and reverse complement k-mer composition. We have used recursive feature elimination to select 17 top features for hotspot prediction. Our analysis shows the superiority of gapped k-mer composition and reverse complement k-mer composition features over others. We have used SVM with RBF kernel as a classification algorithm. We have tested our algorithm on standard benchmark dataset. Compared to other methods <b>iRSpot-SF</b> is able to produce significantly better results in terms of accuracy, Mathew's Correlation Coefficient and sensitivity which are 84.58%, 0.6941 and 84.57%. We have made our method readily available to use as a web server, and also made the datasets and results available in this site.  </p>
+    </div>
+</body>
+</html>
